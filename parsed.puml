@@ -1,0 +1,460 @@
+@startuml
+
+class mainapp.presentation.presenters.BasePresenter {
+}
+class mainapp.domain.usecases.auth.SignUpUser {
+- AuthRepository repository
+- String login
+- String password
++ boolean signUpByEmail()
+}
+class mainapp.presentation.ui.frags.PortfoliosListFragment {
+~ MainPresenter presenter
+- ListView listView
+- GridView gridPortfolio
+- FloatingActionButton fabAdd
+- ImageButton btnChangeView
+- int VIEW_OF_PORTFOLIO_LIST
+- int VIEW_OF_PORTFOLIO_GRID
+- int typeOfView
+~ String TAG
++ {static} int IDM_DEL
++ {static} int IDM_EDIT
+- String contextMenuClickedItemListId
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void init(View)
+- void setAdapter(int)
++ FirebaseListAdapter getAdapterForPortfolio(Query)
+- void design(View)
+- void selectMenuItem()
+- void doAlertForPortfolio(String,boolean)
++ void showMessage(String)
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+- void setOnClickItem(AbsListView)
+- void replaceFragment(Fragment,FragmentActivity)
+}
+class helpers.RecyclerViewAdapter {
+- {static} String TAG
+- LayoutInflater mInflater
+- ArrayList<Portfolio> portfolioArrayList
+- Context mContext
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+class helpers.RecyclerViewAdapter.ViewHolder {
+~ CircleImageView imageView
+~ TextView textView
+}
+class mainapp.domain.usecases.UserCases {
+- UserRepository userRepository
++ GetPortfolio getPortfolios()
++ AddItemPortfolio addItemPortfolio()
++ AddPortfolio addPortfolio()
++ GetItemsPortfolio getItemsPortfolio()
++ DeletePortfolio deletePortfolio()
++ DeletePortfolioItem deletePortfolioItem()
++ EditPortfolio editPortfolio()
++ GetUserInfo getUserInfo()
++ EditUserInfo editUserInfo()
+}
+class mainapp.domain.usecases.user.EditPortfolio {
+- UserRepository repository
++ void editPortfolio(String,String)
+}
+class mainapp.data.repository.UserRepositoryImpl {
+- FbWork fbWork
++ void addPortfolio(Portfolio)
++ void addPortfolioWithName(String)
++ void deletePortfolio(String)
++ void editPortfolio(String,String)
++ Query getPortfolios()
++ void addPortfolioItem(String,String)
++ void deletePortfolioItem(String,String)
++ Query getPortfolioItems(String)
++ Query getUserInfo()
++ void editUserInfo(String,String)
+}
+class mainapp.presentation.ui.LoginActivity {
+- EditText edLogin
+- Button btnRegister
+- TextView tvUserEmail
+- String TAG
+- LoginPresenter presenter
+# void onCreate(Bundle)
+- void init()
++ void openMainActivity()
++ void onClickSignIn(View)
++ void onClickRegister(View)
++ void showMessage(String)
+}
+class mainapp.domain.usecases.user.DeletePortfolioItem {
+- UserRepository repository
++ void deletePortfolioItem(String,String)
+}
+class mainapp.domain.usecases.auth.GetUID {
+- AuthRepository repository
++ String getUid()
+}
+class mainapp.domain.usecases.auth.SignOutUser {
+- AuthRepository repository
++ void signOut()
+}
+class mainapp.domain.usecases.user.AddPortfolio {
+- UserRepository repository
++ void addPortfolio(Portfolio)
++ void addPortfolioWithName(String)
+}
+class mainapp.domain.usecases.auth.IsAuthorized {
+- AuthRepository repository
++ boolean IsAuthorized()
+}
+class mainapp.domain.models.PortfolioItem {
++ String image_id
++ String getImage_id()
+}
+class mainapp.presentation.ui.frags.PresentationFragment {
+~ Button btnCreate
+~ Button btnOpenImg
+~ Button btPick
+~ Button btSave
+~ ImageView imgPres
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void design()
+- void selectMenuItem()
+- void init(View)
+- void initRecycleView(View,ArrayList<Portfolio>)
+- void initRecycleView2(View,ArrayList<Portfolio>)
+}
+class mainapp.presentation.presenters.BasePresenter {
+~ AuthCases authCases
+~ UserCases userCases
++ void start()
+}
+class mainapp.presentation.presenters.MainPresenter {
++ void addPortfolioWithName(String)
++ void editPortfolio(String,String)
++ void deletePortfolio(String)
++ Query getAllPortfolios()
++ Query getAllItemsFor(String)
++ void deleteItem(String,String)
++ void addPhotoItem(String,String)
++ Query getUserData()
++ void signOut()
++ void changeUserData(String,String)
+}
+class mainapp.data.storage.fbase.FbAuth {
+- FirebaseAuth mAuth
+- FirebaseUser curUser
+- DatabaseReference usersRef
+- String TAG
++ void updateUsers()
++ void updateCurrentUser()
++ boolean signUp(String,String)
++ boolean signIn(String,String)
++ void changeUserData(String,String)
++ void signOut()
++ FirebaseUser getCurUser()
++ String getUid()
+- boolean sendEmailVerification()
++ FirebaseAuth getmAuth()
+}
+class mainapp.domain.usecases.AuthCases {
+- AuthRepository authRepository
++ SignUpUser signUpUser(String,String)
++ SignInUser signInUser(String,String)
++ SignOutUser signOutUser()
++ IsAuthorized isAuthorized()
++ GetUID getUID()
+}
+class mainapp.domain.models.User {
++ String id
++ Map<String,Portfolio> portfolios
++ String getId()
++ String getName()
++ String getB_date()
++ String getEmail()
++ String getImage_id()
++ Map<String,Portfolio> getPortfolios()
+}
+class mainapp.presentation.ui.MainActivity {
+~ ActivityMainBinding binding
+~ ImageView btnBack
+~ FragmentManager fragmentManager
+# void onCreate(Bundle)
+- void init()
+- void goBack()
++ void onBackPressed()
++ void replaceFragment(Fragment)
+}
+
+class helpers.Logging {
++ void firstlyInit()
+}
+class mainapp.domain.usecases.user.DeletePortfolio {
+- UserRepository repository
++ void deletePortfolio(String)
+}
+class mainapp.domain.models.Portfolio {
++ Map<String,PortfolioItem> portfolio_items
++ String name
++ String id
++ String image_id
++ void setId(String)
++ String getName()
++ String getId()
++ Map<String,PortfolioItem> getPortfolio_items()
++ void setPortfolio_items(Map<String,PortfolioItem>)
++ void setName(String)
++ String getImage_id()
++ void setImage_id(String)
+}
+interface mainapp.domain.repository.AuthRepository {
+~ boolean signUp(String,String)
+~ boolean signIn(String,String)
+~ boolean isAuthorized()
+~ void signOut()
+~ String getUid()
+}
+class mainapp.domain.usecases.user.AddItemPortfolio {
+- UserRepository repository
++ void addItemPortfolio(String,String)
+}
+class mainapp.data.storage.fbase.WorkWithFirebaseStorage {
+- {static} String TAG
+- {static} StorageReference mStorageRef
+- {static} Uri uploadUri
++ {static} void init()
++ {static} boolean uploadImage(Bitmap)
++ {static} Uri getUploadUri()
+}
+class mainapp.domain.usecases.user.GetPortfolio {
+- UserRepository repository
++ Query getPortfolios()
+}
+interface mainapp.domain.repository.UserRepository {
+~ void addPortfolio(Portfolio)
+~ void addPortfolioWithName(String)
+~ void deletePortfolio(String)
+~ void editPortfolio(String,String)
+~ Query getPortfolios()
+~ void addPortfolioItem(String,String)
+~ void deletePortfolioItem(String,String)
+~ Query getPortfolioItems(String)
+~ Query getUserInfo()
+~ void editUserInfo(String,String)
+}
+class helpers.ImageWorker {
+- void pickImage()
+- void checkPermisson()
++ void onRequestPermissionsResult(int,String[],int[])
+}
+class mainapp.presentation.ui.frags.subfrags.PortfolioItemFragment {
+~ MainPresenter presenter
+~ String TAG
+- GridView grdPortfolioItem
+- FloatingActionButton fabAdd
+~ String idPortfolio
++ {static} int IDM_DEL
++ {static} int IDM_EDIT
+- String contextMenuClickedImageId
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void showMessage(String)
+- void init(View)
++ FirebaseListAdapter getAdapterToShowItems(Query)
+- void design(View)
+- void selectMenuItem()
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+- void setOnClickImage()
++ void getImage()
+- void replaceFragment(Fragment,FragmentActivity)
+}
+class GlobalClass {
++ {static} AuthRepository authRepository
++ {static} String uid
++ {static} UserRepository userRepository
++ {static} AuthCases authCases
++ {static} UserCases userCases
++ {static} void start()
++ {static} AuthRepository getAuthRepository()
++ {static} String getUid()
++ UserRepository getUserRepository()
++ AuthCases getAuthCases()
++ UserCases getUserCases()
+}
+class mainapp.data.storage.fbase.ConstantWorkWithFirebase {
++ {static} String USER_PORTFOLIOS
++ {static} String USER_IMAGES
++ {static} String USER_KEY
++ {static} String USER_NAME
++ {static} String USER_DATE
++ {static} String PORTFOLIO_NAME
+}
+class mainapp.presentation.ui.Constant {
++ {static} String USER_NAME
++ {static} String USER_SEC_NAME
++ {static} String USER_EMAIL
++ {static} String USER_IMAGE_ID
++ {static} String PORTFOLIO_ID
++ {static} String PORTFOLIO_ITEM_IMAGE_ID
++ {static} String REQUEST_CODE
++ {static} String MESSAGE
+}
+class mainapp.domain.usecases.user.GetItemsPortfolio {
+- UserRepository repository
++ Query getAllFor(String)
+}
+class mainapp.data.storage.fbase.FbWork {
+- DatabaseReference userRef
+- DatabaseReference porfoliosRef
+- String TAG
++ Query getPortfolios()
++ Query getPortfolioItemsForPortfolio(String)
++ void addPortfolio(Portfolio)
++ void addPortfolio(String)
++ void deletePortfolioFromDB(String)
++ void getPortfolioItemCount(String)
++ void deletePortfolioItemFromDB(String,String)
++ void deleteFileFromFirebase()
++ void addPortfolioItem(String,String)
++ void editPortfolio(String,String)
++ void changeUserData(String,String)
++ Query getUserInfo()
++ User getUser()
++ void saveUser(String,String,String,String,Map<String,Portfolio>)
+}
+class mainapp.data.storage.fbase.FbWork.PortfolioHolder {
+}
+class mainapp.presentation.presenters.LoginPresenter {
++ void initData()
++ boolean checkAuth()
++ boolean signUp(String,String)
++ boolean signIn(String,String)
+}
+class mainapp.presentation.ui.PhotoLoadActivity {
+~ MainPresenter presenter
+- {static} String TAG
++ {static} int REQUEST_CODE_LOAD_IMAGE_TO_FB
++ {static} int REQUEST_CODE_LOAD_IMAGE_TO_PRESENTATION
+~ Button btnChooseImage
+~ ImageView imageView
+~ ImageButton btnBack
+- int request
+- String idPortfolio
+- {static} StorageReference mStorageRef
+- Uri imageUriLocal
+- Uri uploadUri
+# void onCreate(Bundle)
+- void init()
+- void checkPermisson()
+- void pickImage()
++ void onRequestPermissionsResult(int,String[],int[])
+# void onActivityResult(int,int,Intent)
+- void loadPresentationActivity(Uri)
+- void getData2()
++ void getImage()
+- void uploadImage()
+- void addToDb()
+# void lastonActivityResult(int,int,Intent)
+}
+class mainapp.domain.usecases.user.EditUserInfo {
+- UserRepository repository
++ void editUserInfo(String,String)
+}
+class mainapp.domain.usecases.auth.SignInUser {
+- AuthRepository repository
+- String login
+- String password
++ boolean signInWithEmail()
+}
+class mainapp.presentation.ui.frags.ProfileFragment {
+~ MainPresenter presenter
+~ EditText edName
+~ Button btnSave
+~ ComponentsHelper edDateHelper
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void init(View)
+- void design()
+- void selectMenuItem()
+- void readUser()
++ void writeUserData(Query)
++ void onClickEdit()
++ void onClickCancel()
++ void showBtnsForEditing()
++ void showBtns()
+- void disableEdTexts()
+- void ableEdTexts()
++ void onClickSave()
++ void showMessage(String)
++ void onClickExit()
+}
+class mainapp.domain.usecases.user.GetUserInfo {
+- UserRepository repository
++ Query getUserInfo()
+}
+class helpers.ComponentsHelper {
+- KeyListener listener
+- EditText editText
++ void disableEditText()
++ void ableEditText()
+}
+class mainapp.data.repository.AuthRepositoryImpl {
+~ FbAuth fbAuth
++ boolean signUp(String,String)
++ boolean signIn(String,String)
++ boolean isAuthorized()
++ void signOut()
++ String getUid()
++ String getStringUid()
+}
+class mainapp.data.storage.SharedPreferencesUserStorage {
+}
+class mainapp.presentation.ui.frags.subfrags.DetailedImage {
+~ String idImage
+~ String TAG
+~ RelativeLayout rl
+~ LinearLayout btnsLay
+~ ImageButton ic_back
+~ TextView topTxt
+~ BottomNavigationView bottomNavigationView
+~ int black
+- View v
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void init()
+- void openDesign()
+- void closeDesign()
++ void onResume()
++ void onDestroy()
++ void onDetach()
++ void onStop()
+}
+
+
+
+
+
+androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.PortfoliosListFragment
+helpers.Adapter <|-- helpers.RecyclerViewAdapter
+helpers.RecyclerViewAdapter +.. helpers.RecyclerViewAdapter.ViewHolder
+helpers.ViewHolder <|-- helpers.RecyclerViewAdapter.ViewHolder
+mainapp.domain.repository.UserRepository <|.. mainapp.data.repository.UserRepositoryImpl
+androidx.appcompat.app.AppCompatActivity <|-- mainapp.presentation.ui.LoginActivity
+androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.PresentationFragment
+mainapp.presentation.presenters.BasePresenter <|-- mainapp.presentation.presenters.MainPresenter
+androidx.appcompat.app.AppCompatActivity <|-- mainapp.presentation.ui.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- helpers.ImageWorker
+androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.subfrags.PortfolioItemFragment
+android.app.Application <|-[hidden]- GlobalClass
+mainapp.data.storage.fbase.FbWork +.. mainapp.data.storage.fbase.FbWork.PortfolioHolder
+mainapp.data.storage.fbase.ViewHolder <|-- mainapp.data.storage.fbase.FbWork.PortfolioHolder
+mainapp.presentation.presenters.BasePresenter <|-- mainapp.presentation.presenters.LoginPresenter
+androidx.appcompat.app.AppCompatActivity <|-- mainapp.presentation.ui.PhotoLoadActivity
+androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.ProfileFragment
+mainapp.domain.repository.AuthRepository <|.. mainapp.data.repository.AuthRepositoryImpl
+androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.subfrags.DetailedImage
+@enduml

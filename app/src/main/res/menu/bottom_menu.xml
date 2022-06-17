@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/portfolioFragment"
+        android:title="@string/bot_item_portfolios"
+        android:icon="@drawable/ic_albom"/>
+    <item
+        android:id="@+id/presentationFragment"
+        android:title="@string/bot_item_presentations"
+        android:icon="@drawable/ic_magic_wand"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/bot_item_profile"
+        android:icon="@drawable/ic_person"/>
+</menu>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mainapp.presentation.ui.PhotoLoadActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/BordersLayoutMargin"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_choosen"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:background="@color/grey_light"
+            android:layout_height="300dp"
+            android:textAlignment="center"
+            android:src="@drawable/ic_add_a_photo"
+
+            android:tooltipText="text" />
+
+
+
+        <LinearLayout
+            android:layout_weight="0.75"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_choose_img"
+                style="@style/ButtonMainStyle"
+                android:text="Выбрать изображение" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_photo_cancel"
+                android:layout_marginTop="8dp"
+                android:text="Закрыть"
+                style="@style/ButtonMainStyle" />
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

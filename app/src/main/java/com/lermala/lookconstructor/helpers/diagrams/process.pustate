@@ -1,0 +1,6 @@
+@startuml
+[*] -> Morning
+Morning -> Daytime
+Daytime -> Night
+Night  -> [*]
+@enduml

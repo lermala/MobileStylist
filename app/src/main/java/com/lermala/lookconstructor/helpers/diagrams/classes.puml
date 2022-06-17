@@ -1,0 +1,190 @@
+@startuml
+'https://plantuml.com/class-diagram
+'Разделение на 4 страницы
+'page 1x2
+'skinparam pageMargin 10
+
+package "presentation" {
+   package "frags" {
+       class PresentationFragment {
+           +onCreate(Bundle savedInstanceState)
+           +View onCreateView(LayoutInflater inf,
+           ViewGroup container, Bundle b)
+       }
+
+       class ProfileFragment {
+           -EditText edName ;
+           -EditText edSurname;
+           -TextView tvEmail;
+           +onCreate(Bundle savedInstanceState)
+           +View onCreateView(LayoutInflater inf,
+           ViewGroup container, Bundle b)
+           -init(View view)
+           -readUser()
+           -onClickEdit()
+           -onClickExit()
+       }
+
+          package "subfrags" {
+              class DetailedImage {
+                  +onCreate(Bundle savedInstanceState)
+                  +View onCreateView(LayoutInflater inf,
+                  ViewGroup container, Bundle b)
+              }
+
+              class PortfolioItemFragment {
+                  +onCreate(Bundle savedInstanceState)
+                  +View onCreateView(LayoutInflater inf,
+                  ViewGroup container, Bundle b)
+              }
+          }
+   }
+
+   class Constant {
+       +onCreate(Bundle savedInstanceState)
+       +View onCreateView(LayoutInflater inf,
+       ViewGroup container, Bundle b)
+   }
+
+   class LoginActivity{
+       -EditText edLogin, edPassword;
+       -Button btnRegister, btnLogIn;
+       -TextView tvUserEmail;
+       #onCreate(Bundle savedInstanceState)
+       -init()
+       #onStart()
+       -openMainActivity()
+       -onClickSignIn(View view)
+       -onClickRegister(View view)
+   }
+
+   class MainActivity{
+       #onCreate(Bundle savedInstanceState)
+       -init()
+   }
+
+   class PhotoLoadActivity{
+       -Button btnChooseImage;
+       -ImageView imageView;
+       -Uri uploadUri;
+       -String idPortfolio;
+       -StorageReference mStorageRef;
+       #onCreate(Bundle savedInstanceState)
+       -init()
+       -getData()
+       +getImage()
+       -uploadImage()
+       -addToDb()
+       #onActivityResult(int requestCode,
+       int resultCode, @Nullable Intent data)
+   }
+
+   MainActivity <.. LoginActivity
+   MainActivity ..> PhotoLoadActivity
+
+   ProfileFragment <.. MainActivity
+   PresentationFragment <.. MainActivity
+}
+
+package "Data Layer" <<Rectangle>>{
+    package "data"  {
+        package "repository" {
+            class DataRepository{
+            }
+        }
+
+        package "storage"  {
+            class ConstantsFb{
+                +String USER_PORTFOLIOS = "portfolios"
+                +String USER_IMAGES = "portfolio_items"
+                +String USER_KEY = "User"
+                +String USER_NAME = "name"
+                +String USER_SURNAME = "surname"
+            }
+
+            class WorkWithFb {
+                +FirebaseAuth mAuth
+                +DatabaseReference usersRef
+                +DatabaseReference currentUserRef
+                +FirebaseUser curUser
+                +changeName()
+                +updateCurrentUser()
+                +boolean signUp()
+                +boolean signIn()
+                +boolean signOut()
+                +boolean sendEmailVerification()
+                +saveUser()
+                +addPortfolio()
+                +deletePortfolioFromDB()
+                +deletePortfolioItemFromDB()
+                +addPortfolioItem()
+                +FirebaseListAdapter getAdapterPortfol\n(Activity act)
+                +FirebaseListAdapter addAdapterItems\n(String idPortf, Activity act)
+            }
+
+            class WorkWithFbStorage{
+                +StorageReference mStorageRef
+                +Uri uploadUri
+                +Uri uploadUri
+                +boolean uploadImage(Bitmap bitmap)
+                +Uri getUploadUri()
+            }
+
+            ConstantsFb <.. WorkWithFb
+            ConstantsFb <.. WorkWithFbStorage
+        }
+    }
+
+    package "domain"{
+        package "models" {
+            class User {
+                    + String id, name, email, image_id;
+                    + Map<String, Portfolio> portfolios;
+            }
+
+            class Portfolio {
+                + Map<String, PortfolioItem> portfolio_items;
+                + String name;
+                + String id;
+            }
+
+            class PortfolioItem {
+                + String image_id;
+            }
+            Portfolio ..> User
+            Portfolio *- PortfolioItem
+        }
+
+        package "usecase" {
+            class PortfolioUseCase {
+                + String image_id;
+            }
+
+            class UserUseCase {
+                + String image_id;
+            }
+        }
+    }
+
+    WorkWithFb ..> Portfolio
+    WorkWithFb ..> PortfolioItem
+    WorkWithFb ..> User
+
+    WorkWithFb <.. LoginActivity
+    WorkWithFbStorage <.. LoginActivity
+}
+
+
+
+    package "res" {
+
+    }
+
+    note right of res : Пакет с xml описанием \nинтерфейсов
+
+
+PhotoLoadActivity <..[hidden] res
+
+
+
+@enduml

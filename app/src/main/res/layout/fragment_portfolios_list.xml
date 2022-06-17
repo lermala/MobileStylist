@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/BordersLayoutMargin"
+    tools:context=".mainapp.presentation.ui.frags.PortfoliosListFragment">
+
+    <!--        android:divider="@android:color/transparent"-->
+
+    <EditText
+        android:id="@+id/tv_search_portfolio"
+        style="@style/GreyEditTextProfile"
+        android:hint="Поиск"
+        android:inputType="textPersonName"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/lv_portfolio"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:dividerHeight="1dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:scrollbars="none"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_portfolio" />
+
+    <GridView
+        android:id="@+id/grd_portfolio"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:columnWidth="100dp"
+        android:layout_marginTop="12dp"
+        android:horizontalSpacing="2dp"
+        android:numColumns="2"
+        android:verticalSpacing="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_portfolio" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|end|right"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_portfolio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="18dp"
+            android:src="@drawable/ic_create"
+            app:backgroundTint="@color/accentColor"
+            app:fabSize="normal" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

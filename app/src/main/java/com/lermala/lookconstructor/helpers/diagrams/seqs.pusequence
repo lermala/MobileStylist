@@ -1,0 +1,39 @@
+@startuml
+skinparam sequenceArrowThickness 1
+skinparam maxmessagesize 130
+skinparam sequenceParticipant underline
+
+actor User
+autonumber
+User -> MainActivity : Запуск приложения
+activate MainActivity
+MainActivity -> MainActivity : Создание активности
+MainActivity -> PresentationFragment : Заменить фрагмент
+activate PresentationFragment
+
+
+User <-- PresentationFragment : Отобразить фрагмент
+
+User -> MainActivity : Выбрать меню\n"Портфолио"
+deactivate PresentationFragment
+
+MainActivity -> PotfoliosListFragment : Заменить фрагмент
+activate PotfoliosListFragment
+User <-- PotfoliosListFragment : Отобразить список портфолио
+
+User -> MainActivity : Нажать на портфолио из списка
+MainActivity -> PortfolioItemFragment : Заменить фрагмент
+deactivate PotfoliosListFragment
+activate PortfolioItemFragment
+User <-- PortfolioItemFragment : Отобразить фотографии \nвыбранного портфолио
+
+User -> MainActivity : Нажать на фотографию из списка
+MainActivity -> DetailedImageFragment : Заменить фрагмент
+deactivate PortfolioItemFragment
+activate DetailedImageFragment
+
+User <-- DetailedImageFragment : Отобразить фрагамент\n для выбранной фотографии
+deactivate MainActivity
+deactivate DetailedImageFragment
+
+@enduml

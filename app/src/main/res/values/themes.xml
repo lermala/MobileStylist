@@ -1,0 +1,102 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LookConstructor" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimaryVariant">@color/armadillo</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/pink_swan</item>
+        <item name="colorSecondaryVariant">@color/pink_light</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- The class name to the ScrollingChildBehavior required for AppBarLayout -->
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+    <style name="Theme.AndroidDevelopers" parent="Theme.MaterialComponents.Light.DarkActionBar">
+
+    </style>
+    <style name="Theme.AndroidDevelopers2" parent="Theme.MaterialComponents.Light.DarkActionBar">
+
+    </style>
+
+
+    <!-- стиль для отсутпов компонентов -->
+    <style name="BordersLayoutMargin">
+        <item name="android:padding">12dp</item>
+<!--        <item name="android:layout_marginLeft">8dp</item>-->
+<!--        <item name="android:layout_marginRight">8dp</item>-->
+<!--        <item name="android:layout_marginTop">8dp</item>-->
+<!--        <item name="android:layout_marginBottom">8dp</item>-->
+    </style>
+
+    <style name="ComponentsMargin">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <!-- стиль для размеров компонентов -->
+    <style name="Sizes" parent="ComponentsMargin">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+    </style>
+
+    <style name="MainMargin">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">32dp</item>
+        <item name="android:layout_marginRight">32dp</item>
+    </style>
+
+    <!-- стиль для кнопок -->
+    <style name="ButtonMainStyle" parent="Sizes">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/text_selector</item>
+
+    </style>
+
+    <!-- стиль для кнопок iconc -->
+    <style name="ButtonIconStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/custom_icon</item>
+        <item name="tint">@color/rich_black</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+
+    <style name="EditTextPrimary">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="EditTextLeft" parent="EditTextPrimary">
+        <item name="android:paddingLeft">8dp</item>
+    </style>
+
+    <style name="EditTextCenter" parent="EditTextPrimary">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="EditTextProfile" parent="Sizes">
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:background">@drawable/custom_input</item>
+    </style>
+
+    <style name="GreyEditTextProfile" parent="Sizes">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:background">@drawable/custom_grey_component</item>
+    </style>
+
+
+</resources>

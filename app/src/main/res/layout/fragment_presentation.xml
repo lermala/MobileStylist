@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/BordersLayoutMargin"
+    tools:context=".mainapp.presentation.ui.frags.PresentationFragment">
+
+    <TextView
+        android:text="Последние презентации"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_presentation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:text="Последние добавленные фото"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_presentation_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/pres_btn_create"
+        style="@style/ButtonMainStyle"
+        android:layout_marginTop="26dp"
+        android:text="Создать презентацию" />
+
+
+
+
+
+
+</LinearLayout>

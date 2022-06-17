@@ -1,0 +1,74 @@
+@startuml
+class com.lermala.lookconstructor.mainapp.data.storage.fbase.ConstantWorkWithFirebase {
++ {static} String USER_PORTFOLIOS
++ {static} String USER_IMAGES
++ {static} String USER_KEY
++ {static} String USER_NAME
++ {static} String USER_DATE
++ {static} String PORTFOLIO_NAME
+}
+class com.lermala.lookconstructor.mainapp.data.storage.fbase.FbWork {
+- DatabaseReference userRef
+- DatabaseReference porfoliosRef
+- String TAG
++ Query getPortfolios()
++ Query getPortfolioItemsForPortfolio(String)
++ void addPortfolio(Portfolio)
++ void addPortfolio(String)
++ void deletePortfolioFromDB(String)
++ void getPortfolioItemCount(String)
++ void deletePortfolioItemFromDB(String,String)
++ void deleteFileFromFirebase()
++ void addPortfolioItem(String,String)
++ void editPortfolio(String,String)
++ void changeUserData(String,String)
++ Query getUserInfo()
++ User getUser()
++ void saveUser(String,String,String,String,Map<String,Portfolio>)
+}
+
+class com.lermala.lookconstructor.mainapp.data.storage.fbase.FbAuth {
+- FirebaseAuth mAuth
+- FirebaseUser curUser
+- DatabaseReference usersRef
+- String TAG
++ void updateUsers()
++ void updateCurrentUser()
++ boolean signUp(String,String)
++ boolean signIn(String,String)
++ void changeUserData(String,String)
++ void signOut()
++ FirebaseUser getCurUser()
++ String getUid()
+- boolean sendEmailVerification()
++ FirebaseAuth getmAuth()
+}
+
+class com.lermala.lookconstructor.mainapp.data.repository.AuthRepositoryImpl {
+~ FbAuth fbAuth
++ boolean signUp(String,String)
++ boolean signIn(String,String)
++ boolean isAuthorized()
++ void signOut()
++ String getUid()
++ String getStringUid()
+}
+
+class com.lermala.lookconstructor.mainapp.data.repository.UserRepositoryImpl {
+- FbWork fbWork
++ void addPortfolio(Portfolio)
++ void addPortfolioWithName(String)
++ void deletePortfolio(String)
++ void editPortfolio(String,String)
++ Query getPortfolios()
++ void addPortfolioItem(String,String)
++ void deletePortfolioItem(String,String)
++ Query getPortfolioItems(String)
++ Query getUserInfo()
++ void editUserInfo(String,String)
+}
+
+
+
+
+@enduml

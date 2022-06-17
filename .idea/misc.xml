@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/button_elevation.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/custom_button.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/custom_edit_txt.xml" value="0.28055555555555556" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/custom_grey_component.xml" value="0.28055555555555556" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/custom_icon.xml" value="0.24791666666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/custom_input.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/custom_toolbar.xml" value="0.275" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_add.xml" value="0.3828125" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_back.xml" value="0.275" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_create.xml" value="0.24791666666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_date.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_date_focused.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_email.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_email_focused.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_lock.xml" value="0.3769230769230769" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_palette.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_person.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_person_focused.xml" value="0.3151041666666667" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/ic_search.xml" value="0.15462962962962962" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/selector_portfolio.xml" value="0.31851851851851853" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/drawable/text_selector.xml" value="0.2453125" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/activity_photo.xml" value="0.33195020746887965" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/activity_presentation.xml" value="0.36666666666666664" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/dialog_portfolio_add.xml" value="0.1" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/frag_detailed_image.xml" value="0.25" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_detailed_image.xml" value="0.24864130434782608" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_first_menu.xml" value="0.17603850050658562" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_portfolio.xml" value="0.25" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_portfolio_item.xml" value="0.25" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_portfolios_list.xml" value="0.33" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_presentation.xml" value="0.25" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_profile.xml" value="0.5" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/fragment_profile_edit.xml" value="0.33" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/item_presentation.xml" value="0.5" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/lst_portfolio.xml" value="0.33" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/lst_portfolio_item.xml" value="0.1778115501519757" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/porfolio_grid.xml" value="0.25" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/layout/toolbar.xml" value="0.33" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/menu/bottom_menu.xml" value="0.33" />
+        <entry key="..\:/projects/education/LookConstructor/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

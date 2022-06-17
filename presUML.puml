@@ -1,0 +1,202 @@
+@startuml
+class com.lermala.lookconstructor.mainapp.presentation.presenters.BasePresenter {
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.frags.PortfoliosListFragment {
+~ MainPresenter presenter
+- ListView listView
+- GridView gridPortfolio
+- FloatingActionButton fabAdd
+- ImageButton btnChangeView
+- int VIEW_OF_PORTFOLIO_LIST
+- int VIEW_OF_PORTFOLIO_GRID
+- int typeOfView
+~ String TAG
++ {static} int IDM_DEL
++ {static} int IDM_EDIT
+- String contextMenuClickedItemListId
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void init(View)
+- void setAdapter(int)
++ FirebaseListAdapter getAdapterForPortfolio(Query)
+- void design(View)
+- void selectMenuItem()
+- void doAlertForPortfolio(String,boolean)
++ void showMessage(String)
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+- void setOnClickItem(AbsListView)
+- void replaceFragment(Fragment,FragmentActivity)
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.frags.subfrags.PortfolioItemFragment {
+~ MainPresenter presenter
+~ String TAG
+- GridView grdPortfolioItem
+- FloatingActionButton fabAdd
+~ String idPortfolio
++ {static} int IDM_DEL
++ {static} int IDM_EDIT
+- String contextMenuClickedImageId
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void showMessage(String)
+- void init(View)
++ FirebaseListAdapter getAdapterToShowItems(Query)
+- void design(View)
+- void selectMenuItem()
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+- void setOnClickImage()
++ void getImage()
+- void replaceFragment(Fragment,FragmentActivity)
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.LoginActivity {
+- EditText edLogin
+- Button btnRegister
+- TextView tvUserEmail
+- String TAG
+- LoginPresenter presenter
+# void onCreate(Bundle)
+- void init()
++ void openMainActivity()
++ void onClickSignIn(View)
++ void onClickRegister(View)
++ void showMessage(String)
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.Constant {
++ {static} String USER_NAME
++ {static} String USER_SEC_NAME
++ {static} String USER_EMAIL
++ {static} String USER_IMAGE_ID
++ {static} String PORTFOLIO_ID
++ {static} String PORTFOLIO_ITEM_IMAGE_ID
++ {static} String REQUEST_CODE
++ {static} String MESSAGE
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.frags.PresentationFragment {
+~ Button btnCreate
+~ Button btnOpenImg
+~ Button btPick
+~ Button btSave
+~ ImageView imgPres
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void design()
+- void selectMenuItem()
+- void init(View)
+- void initRecycleView(View,ArrayList<Portfolio>)
+- void initRecycleView2(View,ArrayList<Portfolio>)
+}
+class com.lermala.lookconstructor.mainapp.presentation.presenters.BasePresenter {
+~ AuthCases authCases
+~ UserCases userCases
++ void start()
+}
+class com.lermala.lookconstructor.mainapp.presentation.presenters.LoginPresenter {
++ void initData()
++ boolean checkAuth()
++ boolean signUp(String,String)
++ boolean signIn(String,String)
+}
+class com.lermala.lookconstructor.mainapp.presentation.presenters.MainPresenter {
++ void addPortfolioWithName(String)
++ void editPortfolio(String,String)
++ void deletePortfolio(String)
++ Query getAllPortfolios()
++ Query getAllItemsFor(String)
++ void deleteItem(String,String)
++ void addPhotoItem(String,String)
++ Query getUserData()
++ void signOut()
++ void changeUserData(String,String)
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.PhotoLoadActivity {
+~ MainPresenter presenter
+- {static} String TAG
++ {static} int REQUEST_CODE_LOAD_IMAGE_TO_FB
++ {static} int REQUEST_CODE_LOAD_IMAGE_TO_PRESENTATION
+~ Button btnChooseImage
+~ ImageView imageView
+~ ImageButton btnBack
+- int request
+- String idPortfolio
+- {static} StorageReference mStorageRef
+- Uri imageUriLocal
+- Uri uploadUri
+# void onCreate(Bundle)
+- void init()
+- void checkPermisson()
+- void pickImage()
++ void onRequestPermissionsResult(int,String[],int[])
+# void onActivityResult(int,int,Intent)
+- void loadPresentationActivity(Uri)
+- void getData2()
++ void getImage()
+- void uploadImage()
+- void addToDb()
+# void lastonActivityResult(int,int,Intent)
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.frags.ProfileFragment {
+~ MainPresenter presenter
+~ EditText edName
+~ Button btnSave
+~ ComponentsHelper edDateHelper
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void init(View)
+- void design()
+- void selectMenuItem()
+- void readUser()
++ void writeUserData(Query)
++ void onClickEdit()
++ void onClickCancel()
++ void showBtnsForEditing()
++ void showBtns()
+- void disableEdTexts()
+- void ableEdTexts()
++ void onClickSave()
++ void showMessage(String)
++ void onClickExit()
+}
+
+class com.lermala.lookconstructor.mainapp.presentation.ui.MainActivity {
+~ ActivityMainBinding binding
+~ ImageView btnBack
+~ FragmentManager fragmentManager
+# void onCreate(Bundle)
+- void init()
+- void goBack()
++ void onBackPressed()
++ void replaceFragment(Fragment)
+}
+class com.lermala.lookconstructor.mainapp.presentation.ui.frags.subfrags.DetailedImage {
+~ String idImage
+~ String TAG
+~ RelativeLayout rl
+~ LinearLayout btnsLay
+~ ImageButton ic_back
+~ TextView topTxt
+~ BottomNavigationView bottomNavigationView
+~ int black
+- View v
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void init()
+- void openDesign()
+- void closeDesign()
++ void onResume()
++ void onDestroy()
++ void onDetach()
++ void onStop()
+}
+
+
+androidx.fragment.app.Fragment <|-- com.lermala.lookconstructor.mainapp.presentation.ui.frags.PortfoliosListFragment
+androidx.fragment.app.Fragment <|-- com.lermala.lookconstructor.mainapp.presentation.ui.frags.subfrags.PortfolioItemFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.lermala.lookconstructor.mainapp.presentation.ui.LoginActivity
+androidx.fragment.app.Fragment <|-- com.lermala.lookconstructor.mainapp.presentation.ui.frags.PresentationFragment
+com.lermala.lookconstructor.mainapp.presentation.presenters.BasePresenter <|-- com.lermala.lookconstructor.mainapp.presentation.presenters.LoginPresenter
+com.lermala.lookconstructor.mainapp.presentation.presenters.BasePresenter <|-- com.lermala.lookconstructor.mainapp.presentation.presenters.MainPresenter
+androidx.appcompat.app.AppCompatActivity <|-- com.lermala.lookconstructor.mainapp.presentation.ui.PhotoLoadActivity
+androidx.fragment.app.Fragment <|-- com.lermala.lookconstructor.mainapp.presentation.ui.frags.ProfileFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.lermala.lookconstructor.mainapp.presentation.ui.MainActivity
+androidx.fragment.app.Fragment <|-- com.lermala.lookconstructor.mainapp.presentation.ui.frags.subfrags.DetailedImage
+@enduml

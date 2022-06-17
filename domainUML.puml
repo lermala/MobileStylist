@@ -1,0 +1,130 @@
+@startuml
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.DeletePortfolio {
+- UserRepository repository
++ void deletePortfolio(String)
+}
+class com.lermala.lookconstructor.mainapp.domain.models.Portfolio {
++ Map<String,PortfolioItem> portfolio_items
++ String name
++ String id
++ String image_id
++ void setId(String)
++ String getName()
++ String getId()
++ Map<String,PortfolioItem> getPortfolio_items()
++ void setPortfolio_items(Map<String,PortfolioItem>)
++ void setName(String)
++ String getImage_id()
++ void setImage_id(String)
+}
+interface com.lermala.lookconstructor.mainapp.domain.repository.AuthRepository {
+~ boolean signUp(String,String)
+~ boolean signIn(String,String)
+~ boolean isAuthorized()
+~ void signOut()
+~ String getUid()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.AddItemPortfolio {
+- UserRepository repository
++ void addItemPortfolio(String,String)
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.auth.SignUpUser {
+- AuthRepository repository
+- String login
+- String password
++ boolean signUpByEmail()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.GetPortfolio {
+- UserRepository repository
++ Query getPortfolios()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.UserCases {
+- UserRepository userRepository
++ GetPortfolio getPortfolios()
++ AddItemPortfolio addItemPortfolio()
++ AddPortfolio addPortfolio()
++ GetItemsPortfolio getItemsPortfolio()
++ DeletePortfolio deletePortfolio()
++ DeletePortfolioItem deletePortfolioItem()
++ EditPortfolio editPortfolio()
++ GetUserInfo getUserInfo()
++ EditUserInfo editUserInfo()
+}
+interface com.lermala.lookconstructor.mainapp.domain.repository.UserRepository {
+~ void addPortfolio(Portfolio)
+~ void addPortfolioWithName(String)
+~ void deletePortfolio(String)
+~ void editPortfolio(String,String)
+~ Query getPortfolios()
+~ void addPortfolioItem(String,String)
+~ void deletePortfolioItem(String,String)
+~ Query getPortfolioItems(String)
+~ Query getUserInfo()
+~ void editUserInfo(String,String)
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.EditPortfolio {
+- UserRepository repository
++ void editPortfolio(String,String)
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.DeletePortfolioItem {
+- UserRepository repository
++ void deletePortfolioItem(String,String)
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.auth.GetUID {
+- AuthRepository repository
++ String getUid()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.auth.SignOutUser {
+- AuthRepository repository
++ void signOut()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.AddPortfolio {
+- UserRepository repository
++ void addPortfolio(Portfolio)
++ void addPortfolioWithName(String)
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.GetItemsPortfolio {
+- UserRepository repository
++ Query getAllFor(String)
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.auth.IsAuthorized {
+- AuthRepository repository
++ boolean IsAuthorized()
+}
+class com.lermala.lookconstructor.mainapp.domain.models.PortfolioItem {
++ String image_id
++ String getImage_id()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.EditUserInfo {
+- UserRepository repository
++ void editUserInfo(String,String)
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.AuthCases {
+- AuthRepository authRepository
++ SignUpUser signUpUser(String,String)
++ SignInUser signInUser(String,String)
++ SignOutUser signOutUser()
++ IsAuthorized isAuthorized()
++ GetUID getUID()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.auth.SignInUser {
+- AuthRepository repository
+- String login
+- String password
++ boolean signInWithEmail()
+}
+class com.lermala.lookconstructor.mainapp.domain.usecases.user.GetUserInfo {
+- UserRepository repository
++ Query getUserInfo()
+}
+class com.lermala.lookconstructor.mainapp.domain.models.User {
++ String id
++ Map<String,Portfolio> portfolios
++ String getId()
++ String getName()
++ String getB_date()
++ String getEmail()
++ String getImage_id()
++ Map<String,Portfolio> getPortfolios()
+}
+@enduml

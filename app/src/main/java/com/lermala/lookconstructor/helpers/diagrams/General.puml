@@ -1,0 +1,151 @@
+    @startuml
+    class mainapp.presentation.presenters.BasePresenter {
+    }
+    class mainapp.domain.logic.usecases.auth.SignUpUser {
+
+    }
+
+    mainapp.presentation.presenters ..> mainapp.domain.logic.usecases.auth
+    mainapp.presentation.presenters ..> mainapp.presentation.ui.MainActivity
+
+    class mainapp.presentation.ui.frags.PortfoliosListFragment {
+
+    }
+    class mainapp.domain.logic.UserCases {
+
+    }
+    class mainapp.domain.logic.usecases.user.EditPortfolio {
+
+    }
+    class mainapp.data.repository.UserRepositoryImpl {
+
+    }
+    class mainapp.presentation.ui.LoginActivity {
+
+    }
+    class mainapp.domain.logic.usecases.user.DeletePortfolioItem {
+
+    }
+    class mainapp.domain.logic.usecases.auth.GetUID {
+
+    }
+    class mainapp.domain.logic.usecases.auth.SignOutUser {
+
+    }
+    class mainapp.domain.logic.usecases.user.AddPortfolio {
+
+    }
+    class mainapp.domain.logic.usecases.auth.IsAuthorized {
+
+    }
+    class mainapp.domain.logic.entity.models.PortfolioItem {
+
+    }
+    class mainapp.presentation.ui.frags.PresentationFragment {
+
+    }
+    class mainapp.presentation.presenters.BasePresenter {
+
+    }
+    class mainapp.presentation.presenters.MainPresenter {
+
+    }
+    class mainapp.data.storage.fbase.FbAuth {
+
+    }
+    mainapp.data.storage.fbase ..>
+    class mainapp.domain.logic.AuthCases {
+
+    }
+    class mainapp.domain.logic.entity.models.User {
+
+    }
+    class mainapp.presentation.ui.MainActivity {
+
+    }
+    class mainapp.presentation.ui.MainViewModel {
+
+    }
+    class mainapp.domain.logic.usecases.user.DeletePortfolio {
+
+    }
+    class mainapp.domain.logic.entity.models.Portfolio {
+
+    }
+    interface mainapp.domain.logic.domain.AuthRepository {
+
+    }
+    class mainapp.domain.logic.usecases.user.AddItemPortfolio {
+
+    }
+    class mainapp.data.storage.fbase.WorkWithFirebaseStorage {
+
+    }
+    class mainapp.domain.logic.usecases.user.GetPortfolio {
+
+    }
+    interface mainapp.domain.logic.domain.UserRepository {
+
+    }
+    class mainapp.presentation.ui.frags.subfrags.PortfolioItemFragment {
+
+    }
+    class mainapp.data.storage.fbase.ConstantWorkWithFirebase {
+
+    }
+    class mainapp.presentation.ui.Constant {
+
+    }
+    class mainapp.domain.logic.usecases.user.GetItemsPortfolio {
+    - UserRepository repository
+    + Query getAllFor(String)
+    }
+    class mainapp.data.storage.fbase.FbWork {
+
+    }
+    class mainapp.data.storage.fbase.FbWork.PortfolioHolder {
+    }
+    class mainapp.presentation.presenters.LoginPresenter {
+
+    }
+    class mainapp.presentation.ui.PhotoLoadActivity {
+
+    }
+    class mainapp.domain.logic.usecases.user.EditUserInfo {
+
+    }
+    class mainapp.domain.logic.usecases.auth.SignInUser {
+
+    }
+    class mainapp.presentation.ui.frags.ProfileFragment {
+
+    }
+    class mainapp.domain.logic.usecases.user.GetUserInfo {
+
+    }
+    class mainapp.data.repository.AuthRepositoryImpl {
+
+    }
+    class mainapp.data.storage.SharedPreferencesUserStorage {
+    }
+    class mainapp.presentation.ui.frags.subfrags.DetailedImage {
+
+    }
+
+
+    androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.PortfoliosListFragment
+    mainapp.domain.logic.domain.UserRepository <|.. mainapp.data.repository.UserRepositoryImpl
+    androidx.appcompat.app.AppCompatActivity <|-- mainapp.presentation.ui.LoginActivity
+    androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.PresentationFragment
+    mainapp.presentation.presenters.BasePresenter <|-- mainapp.presentation.presenters.MainPresenter
+    androidx.appcompat.app.AppCompatActivity <|-- mainapp.presentation.ui.MainActivity
+    androidx.lifecycle.ViewModel <|-- mainapp.presentation.ui.MainViewModel
+    androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.subfrags.PortfolioItemFragment
+    mainapp.data.storage.fbase.FbWork +.. mainapp.data.storage.fbase.FbWork.PortfolioHolder
+    mainapp.data.storage.fbase.ViewHolder <|-- mainapp.data.storage.fbase.FbWork.PortfolioHolder
+    mainapp.presentation.presenters.BasePresenter <|-- mainapp.presentation.presenters.LoginPresenter
+    androidx.appcompat.app.AppCompatActivity <|-- mainapp.presentation.ui.PhotoLoadActivity
+    androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.ProfileFragment
+    mainapp.domain.logic.domain.AuthRepository <|.. mainapp.data.repository.AuthRepositoryImpl
+    androidx.fragment.app.Fragment <|-- mainapp.presentation.ui.frags.subfrags.DetailedImage
+    @enduml

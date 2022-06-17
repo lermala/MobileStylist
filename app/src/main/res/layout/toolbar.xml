@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_toolbar"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            style="@style/ButtonIconStyle"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/btn_back"
+            android:text="Мобильный стилист"
+            android:textColor="@color/rich_black"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/top_btns_lay"
+            android:layout_alignParentEnd="true"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/top_burger"
+                style="@style/ButtonIconStyle"
+                android:visibility="gone"
+                android:contentDescription="Списком"
+                android:src="@drawable/ic_menu" />
+
+            <ImageButton
+                android:id="@+id/top_view_portfolio"
+                style="@style/ButtonIconStyle"
+                android:contentDescription="Плиткой"
+                android:src="@drawable/ic_grid" />
+
+            <ImageButton
+                android:id="@+id/top_sort"
+                style="@style/ButtonIconStyle"
+                android:contentDescription="По дате"
+                android:visibility="gone"
+                android:src="@drawable/ic_sort"
+                app:tint="@color/rich_black" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

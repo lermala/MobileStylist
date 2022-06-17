@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/BordersLayoutMargin"
+    tools:context=".mainapp.presentation.ui.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edLogin"
+            style="@style/EditTextProfile"
+            android:drawableStart="@drawable/ic_email"
+            android:hint="Электронный адрес"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/edPassword"
+            style="@style/EditTextProfile"
+            android:hint="Пароль"
+            android:drawableStart="@drawable/ic_lock"
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@+id/edLogin" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogIn"
+            style="@style/ButtonMainStyle"
+            android:layout_marginTop="18dp"
+            android:onClick="onClickSignIn"
+            android:text="@string/login_sign_in"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegister"
+            style="@style/ButtonMainStyle"
+            android:layout_marginTop="8dp"
+            android:onClick="onClickRegister"
+            android:text="@string/login_sign_up" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Забыли пароль?"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+    </LinearLayout>
+
+
+
+
+
+</FrameLayout>
